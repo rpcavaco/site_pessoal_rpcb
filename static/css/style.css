@@ -1,11 +1,70 @@
 @font-face {
-	font-family: "OpenSansCondensed-Light";
-	src: url("fonts/OpenSansCondensed-Light.ttf");
+	font-family: "OpenSans-Regular";
+	src: url("fonts/OpenSans-Regular.ttf");
 }
+
+@font-face {
+	font-family: "Jura-SemiBold";
+	src: url("fonts/Jura-SemiBold.ttf");
+}
+
 
 html {
 	background-color: #fff0ef;
+	background: linear-gradient(#fffcfb, #8b8281);		
 	color: #3b3b3b;
-	font-family: OpenSansCondensed-Light, Arial, Helvetica, sans-serif;
+	font-family: OpenSans-Regular, Arial, Helvetica, sans-serif;
 	font-size: 16px;
+	height: 100%;
 }
+
+html.inverted {
+	color: #ffffff;
+	background: linear-gradient(#305f5f, #101010);	
+}
+
+body {
+	margin: auto;
+	max-width: 38rem;
+	padding: 0.8rem;
+}
+
+body > header {
+	padding-bottom: 1.2rem;
+}
+
+#namelabel {
+	margin-top: -70px;
+	margin-left: 16px;
+	margin-bottom: 20px;	
+	font-size: 3em;
+	font-family: Jura-SemiBold;
+}
+
+footer {
+	font-size: 0.8em;	
+	border-top: 1px solid #8b8b8b;
+	margin-top: 1rem;
+}
+html.inverted footer {
+	border-top: 1px solid #7a7a7a;
+}
+footer span {
+	float: right;
+}
+
+a {
+	color:rgb(65, 161, 129);
+}
+a:visited {
+	color:rgb(128, 128, 128);
+}
+
+html.inverted a {
+	color:rgb(94, 231, 185);
+}
+html.inverted a:visited {
+	color:rgb(173, 173, 173);
+}
+
+

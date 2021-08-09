@@ -1,16 +1,31 @@
 {% extends "root.html" %}
 
 {% block content %}
-<header>
+<header role="heading">
 	Header.
 </header>
 
-<main>
+<main role="main">
+	<section role="banner">
+		<svg id="artwork" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" width="600" height="560" viewBox="0 0 600 560">
+			<rect x="0" y="0" width="100%" height="100%"
+        fill="none" stroke="grey" stroke-width="1"  />
+			<g id="gen">
+			</g>
+		</svg>
+		<p id="namelabel">rui cavaco barrosa</p>
+	</section>
 	This is my blog made with Zola.
-	<pspan style="font-size: 16px">TExto 16px</span>
+	<span style="font-size: 16px">Txto 16px</span>
 </main>
 
-<footer>
-	Footer.
+<footer role="contentinfo">
+	Sítio mantido / gerado com <a href="https://www.getzola.org">Zola</a>.
+	<span>
+		Data de geração {{ config.extra.last_build_date | date(format="%Y-%m-%d") }}
+	</span>
 </footer>
+
+<script src="/js/art.js"></script>
+
 {% endblock content %}
