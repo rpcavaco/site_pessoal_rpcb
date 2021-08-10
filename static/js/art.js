@@ -51,7 +51,7 @@ function init_artwork(p_mincrd, p_maxcrd, p_minrad, p_maxrad, p_stroke, p_newdro
 
 class Drop {
 
-	constructor(p_groupelem, p_width, p_height, p_maxrad, p_stroke, p_stepval, p_stropac_step) {
+	constructor(p_groupelem, p_width, p_height, p_maxrad, p_stepval, p_stropac_step) {
 
 		this.maxrad = p_maxrad;
 		this.r = 1;
@@ -72,7 +72,7 @@ class Drop {
 		this.ce.setAttribute("cy", getRandomInt(miny, maxy));
 		this.ce.setAttribute("r", this.r);
 		this.ce.setAttribute("fill", "none");
-		this.ce.setAttribute("stroke", p_stroke);
+		this.ce.setAttribute("stroke", this.strokeval);
 		this.ce.setAttribute("stroke-width", 1.2);
 	
 		p_groupelem.appendChild(this.ce);
@@ -116,15 +116,25 @@ class Drop {
 		}
 		return ret;
 	}
+	get strokeval() {
+		let stroke_val;
+		if (document.getElementsByTagName("html")[0].classList.contains("inverted")) {
+			stroke_val ="rgb(216, 215, 215)";
+		} else {
+
+			stroke_val = "rgb(40, 40, 40)";
+		}	
+		return stroke_val;
+	}
 }
 
 class DropAnimatorClass {
-	constructor(p_grp_id, p_width, p_height, p_maxrad, p_stroke, p_stepval, p_cleanup_millis, p_stropac_step) {
+	constructor(p_grp_id, p_width, p_height, p_maxrad, p_stepval, p_cleanup_millis, p_stropac_step) {
 		const gengroup = document.getElementById(p_grp_id);
 		if (gengroup == null) {
 			throw new Error("missing group element");
 		}
-		this.attribs = [gengroup, p_width, p_height, p_maxrad, p_stroke, p_stepval, p_stropac_step];
+		this.attribs = [gengroup, p_width, p_height, p_maxrad, p_stepval, p_stropac_step];
 	
 		this.drops = [new Drop(...this.attribs)];
 		this.nextdropstep = this.nextdropstep.bind(this);
@@ -141,10 +151,6 @@ class DropAnimatorClass {
 			}
 		}
 	}
-	/*invertstroke(p_doinvert) {
-		...
-		this.attribs[4] = p_stroke;
-	}*/
 
 };
 
@@ -158,14 +164,7 @@ var DropAnimator = null;
 	const height = 560;
 	const maxradius = 180;
 
-	if (document.getElementsByTagName("html")[0].classList.contains("inverted")) {
-		stroke_val ="rgb(216, 215, 215)";
-	} else {
-
-		stroke_val = "rgb(40, 40, 40)";
-	}
-
-	DropAnimator = new DropAnimatorClass("gen", width, height, maxradius, stroke_val,  radius_step, nextdropstep_millis, stroke_opac_step);
+	DropAnimator = new DropAnimatorClass("gen", width, height, maxradius, radius_step, nextdropstep_millis, stroke_opac_step);
 })();
 
 
