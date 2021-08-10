@@ -1,14 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" class="inverted">
+<html lang="en" {% if config.extra.color_inversion  %}class="inverted"{% endif %}>
 
 <head>
   <meta charset="utf-8">
   <title>RPCB</title>
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/switch.css">
 </head>
 
 <body>
-	{% block content %} {% endblock %}
+	{% block content %} {% endblock content %}
+	<script src="/js/index_events.js"></script>
+
 </body>
 
 </html>

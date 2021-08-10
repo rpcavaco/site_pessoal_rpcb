@@ -118,7 +118,7 @@ class Drop {
 	}
 }
 
-class DropAnimator {
+class DropAnimatorClass {
 	constructor(p_grp_id, p_width, p_height, p_maxrad, p_stroke, p_stepval, p_cleanup_millis, p_stropac_step) {
 		const gengroup = document.getElementById(p_grp_id);
 		if (gengroup == null) {
@@ -141,8 +141,14 @@ class DropAnimator {
 			}
 		}
 	}
+	/*invertstroke(p_doinvert) {
+		...
+		this.attribs[4] = p_stroke;
+	}*/
 
 };
+
+var DropAnimator = null;
 
 (function() {
 	const radius_step = 0.3;
@@ -159,7 +165,7 @@ class DropAnimator {
 		stroke_val = "rgb(40, 40, 40)";
 	}
 
-	const drpanim = new DropAnimator("gen", width, height, maxradius, stroke_val,  radius_step, nextdropstep_millis, stroke_opac_step);
+	DropAnimator = new DropAnimatorClass("gen", width, height, maxradius, stroke_val,  radius_step, nextdropstep_millis, stroke_opac_step);
 })();
 
 

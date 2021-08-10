@@ -11,7 +11,7 @@
 
 html {
 	background-color: #fff0ef;
-	background: linear-gradient(#fffcfb, #8b8281);		
+	background: linear-gradient(#fffcfb, #d1c4c2);		
 	color: #3b3b3b;
 	font-family: OpenSans-Regular, Arial, Helvetica, sans-serif;
 	font-size: 16px;
@@ -25,13 +25,15 @@ html.inverted {
 
 body {
 	margin: auto;
-	max-width: 38rem;
+	max-width: 800px;
 	padding: 0.8rem;
 }
 
 body > header {
-	padding-bottom: 1.2rem;
+	height: 60px;
 }
+
+
 
 #namelabel {
 	margin-top: -70px;
@@ -59,12 +61,38 @@ a {
 a:visited {
 	color:rgb(128, 128, 128);
 }
+header a.acerca {
+	font-family: OpenSans-Regular, Arial, Helvetica, sans-serif;
+	font-size: 1.1rem;	
+	margin-left: 10px;
+	float: right;
+}
 
 html.inverted a {
 	color:rgb(94, 231, 185);
 }
 html.inverted a:visited {
 	color:rgb(173, 173, 173);
+}
+
+h1 {
+	font-family: Jura-SemiBold;
+}
+
+button {
+    border: 0;
+    background: none;
+    -webkit-appearance: none;
+}
+
+.right_header_pane {
+	float: right;
+}
+
+.right_header_pane button {
+	top: -0.3em;
+	position: relative;
+	margin-left: 10px;
 }
 
 

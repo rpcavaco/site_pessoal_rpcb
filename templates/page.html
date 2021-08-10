@@ -1,8 +1,9 @@
 {% extends "root.html" %}
 
 {% block content %}
-<header role="heading" class="indexhead heading">
-
+<header role="heading">
+	page Header. 
+	
 	<div class="right_header_pane">
 
 		<svg id="crescent" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" width="18" height="18" viewBox="-9 -9 18 18">
@@ -20,34 +21,42 @@
 		<button>PT</button>
 		{% endif %}
 	
+		{% set lastc = page.components | last %}
+		{% if lastc != "acerca" %}
 		<a class="acerca" href="/acerca">acerca de ...</a>
-	
-	</div>
+		{% endif %}
 
+	</div>
 
 </header>
 
+<nav role="navigation">
+	<p class="breadcrumbs">
+		<a href="/">Raíz do site</a>
+		{% set path = "" %}
+		{% for comp in page.components %}
+			{% set_global path = path ~ "/" ~ comp %}
+			> <a href="{{ path }}">{{ comp | title  }}</a>
+		{% endfor %}
+	</p>
+</nav>
+
 <main role="main">
-	<section role="banner">
-		<svg id="artwork" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" width="600" height="560" viewBox="0 0 600 560">
-			<rect x="0" y="0" width="100%" height="100%"
-        fill="none" stroke="grey" stroke-width="1"  />
-			<g id="gen">
-			</g>
-		</svg>
-		<p id="namelabel">rui cavaco barrosa</p>
+	<header role="heading">
+		<h1 class="title">
+			{{ page.title }}
+		</h1>
+	</header>
+	<section role="article">
+		{{ page.content | safe }}
 	</section>
-	This is my blog made with Zola.
-	<span style="font-size: 16px">Txto 16px</span>
 </main>
 
 <footer role="contentinfo">
-	Sítio mantido / gerado com <a href="https://www.getzola.org">Zola</a>.
+	<a href="javascript:history.back()">&lt; voltar</a> page footer
 	<span>
 		Data de geração {{ config.extra.last_build_date | date(format="%Y-%m-%d") }}
 	</span>
 </footer>
-
-<script src="/js/art.js"></script>
 
 {% endblock content %}
