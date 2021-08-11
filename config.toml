@@ -13,6 +13,6 @@ build_search_index = true
 
 [extra]
 # Put all your custom variables here
-last_build_date = "2021-08-08"
+last_build_date = "2021-08-10"
 show_lang_switch = false
 color_inversion = true

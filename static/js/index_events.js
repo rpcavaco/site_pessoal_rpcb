@@ -6,7 +6,6 @@ function setCookie(name,value,days) {
         expires = "; expires=" + date.toUTCString();
     }
     document.cookie = name + "=" + (value || "")  + expires + "; SameSite=Lax;";
-	console.log(document.cookie);
 }
 
 function getCookie(name) {

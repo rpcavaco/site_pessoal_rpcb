@@ -28,8 +28,9 @@
 </header>
 
 <main role="main">
-	<section role="banner">
-		<svg id="artwork" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" width="600" height="560" viewBox="0 0 600 560">
+
+	<section id="banner" role="banner">
+		<svg id="artwork" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" width="600" height="300" viewBox="0 0 600 300">
 			<rect x="0" y="0" width="100%" height="100%"
         fill="none" stroke="grey" stroke-width="1"  />
 			<g id="gen">
@@ -37,8 +38,64 @@
 		</svg>
 		<p id="namelabel">rui cavaco barrosa</p>
 	</section>
-	This is my blog made with Zola.
-	<span style="font-size: 16px">Txto 16px</span>
+
+	<section id="blogview">
+		<header  class="indexhdr">
+			<h1>blog</h1>
+			<div>&nbsp;</div>
+		</header>
+
+		<div id="posts">
+			<article class="post">
+				<header>
+					<h4>Lançamento do site</h4>
+					<p>2021-10-10</p>
+				</header>
+			</article>
+		</div>
+
+	</section>
+
+	<section id="temascontainer">
+
+		<header class="indexhdr">
+			<h1>temas</h1>
+			<div>&nbsp;</div>
+		</header>
+
+		<div id="articles">
+
+			<article class="tema">
+				<header>
+					<h3>Mestrado PRU</h3>
+				</header>
+			</article>
+
+			<article class="tema">
+				<header>
+					<h3>Metodologias de Análise Espacial em SIG</h3>
+				</header>
+			</article>	
+
+			<article class="tema">
+				<header>
+					<h3>Textos sobre mobilidade</h3>
+				</header>
+			</article>
+
+			<article class="tema">
+				<header>
+					<h3>RISCO mapas web</h3>
+				</header>
+			</article>
+
+
+
+		</div>
+	
+
+	</section>
+
 </main>
 
 <footer role="contentinfo">
