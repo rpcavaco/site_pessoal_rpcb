@@ -160,7 +160,7 @@ var DropAnimator = null;
 	const radius_step = 0.3;
 	const nextdropstep_millis = 400;
 	const stroke_opac_step = 0.002;
-	const width = 600;
+	const width = artworkDimWidth();
 	const height = 300;
 	const maxradius = 180;
 

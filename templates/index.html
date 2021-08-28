@@ -29,72 +29,107 @@
 
 <main role="main">
 
-	<section id="banner" role="banner">
-		<svg id="artwork" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" width="600" height="300" viewBox="0 0 600 300">
-			<rect x="0" y="0" width="100%" height="100%"
-        fill="none" stroke="grey" stroke-width="1"  />
-			<g id="gen">
-			</g>
-		</svg>
-		<p id="namelabel">rui cavaco barrosa</p>
-	</section>
+	<div id="leftcol">
 
-	<section id="blogview">
-		<header  class="indexhdr">
-			<h1>blog</h1>
-			<div>&nbsp;</div>
-		</header>
+		<section id="banner" role="banner">
+			<svg id="artwork" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" width="600" height="300" viewBox="0 0 600 300">
+				<rect x="0" y="0" width="100%" height="100%"
+			fill="none" stroke="grey" stroke-width="1"  />
+				<g id="gen">
+				</g>
 
-		<div id="posts">
-			<article class="post">
-				<header>
-					<h4>Lançamento do site</h4>
-					<p>2021-10-10</p>
-				</header>
-			</article>
-		</div>
+				<g id="namelabel_C" visibility="hidden">
+					<text class="namelabel" fill="white" x="20" y="180">
+						<tspan>rui</tspan>
+						<tspan dx="-78" dy="50">cavaco</tspan>
+						<tspan dx="-183" dy="50">barrosa</tspan> 
+					</text>
+				</g>
 
-	</section>
+				<g id="namelabel_B" visibility="hidden">
+					<text class="namelabel" fill="white" x="20" y="230">
+						<tspan>rui cavaco</tspan>
+						<tspan dx="-263" dy="50">barrosa</tspan>
+					</text>
+				</g>
 
-	<section id="temascontainer">
+				<g id="namelabel_A" visibility="visible">
+					<text fill="white" class="namelabel" x="20" y="280">
+						rui cavaco barrosa
+					</text>
+				</g>
 
-		<header class="indexhdr">
-			<h1>temas</h1>
-			<div>&nbsp;</div>
-		</header>
+			</svg>
+			<!--
+			<div id="namelabel">
+				rui cavaco barrosa
+			</div>
+		-->
+		</section>
 
-		<div id="articles">
+		<section id="temascontainer">
 
-			<article class="tema">
-				<header>
-					<h3>Mestrado PRU</h3>
-				</header>
-			</article>
-
-			<article class="tema">
-				<header>
-					<h3>Metodologias de Análise Espacial em SIG</h3>
-				</header>
-			</article>	
-
-			<article class="tema">
-				<header>
-					<h3>Textos sobre mobilidade</h3>
-				</header>
-			</article>
-
-			<article class="tema">
-				<header>
-					<h3>RISCO mapas web</h3>
-				</header>
-			</article>
-
-
-
-		</div>
+			<header class="indexhdr">
+				<h1>temas</h1>
+				<div>&nbsp;</div>
+			</header>
 	
+			<div id="articles">
+	
+				<article class="tema">
+					<header>
+						<h3>Mestrado PRU</h3>
+					</header>
+				</article>
+	
+				<article class="tema">
+					<header>
+						<h3>Metodologias de Análise Espacial em SIG</h3>
+					</header>
+				</article>	
+	
+				<article class="tema">
+					<header>
+						<h3>Textos sobre mobilidade</h3>
+					</header>
+				</article>
+	
+				<article class="tema">
+					<header>
+						<h3>RISCO mapas web</h3>
+					</header>
+				</article>
+	
+	
+	
+			</div>
+		
+	
+		</section>
 
-	</section>
+	</div>
+
+
+	<div id="rightcol">
+
+		<section id="blogview">
+			<header  class="indexhdr">
+				<h1>blog</h1>
+				<div>&nbsp;</div>
+			</header>
+
+			<div id="posts">
+				<article class="post">
+					<header>
+						<h4>Lançamento do site</h4>
+						<p>2021-10-10</p>
+					</header>
+				</article>
+			</div>
+
+		</section>
+
+	</div>
 
 </main>
 
