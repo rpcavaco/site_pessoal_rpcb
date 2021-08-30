@@ -4,7 +4,7 @@
 function init_events() {
 
 	// dimensionar artwork
-	dimArtwork();
+	defineWidths();
 
 	// Color invert switch
 
@@ -50,7 +50,7 @@ function init_events() {
 		})(sw_ic, hes[0]);
 	}
 
-	window.addEventListener("resize", dimArtwork);
+	window.addEventListener("resize", defineWidths);
 
 }
 

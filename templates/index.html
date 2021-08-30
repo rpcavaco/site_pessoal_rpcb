@@ -1,7 +1,7 @@
 {% extends "root.html" %}
 
 {% block content %}
-<header role="heading" class="indexhead heading">
+<header id="indexheader" role="heading">
 
 	<div class="right_header_pane">
 
@@ -39,7 +39,7 @@
 				</g>
 
 				<g id="namelabel_C" visibility="hidden">
-					<text class="namelabel" fill="white" x="20" y="180">
+					<text class="namelabel" x="20" y="180">
 						<tspan>rui</tspan>
 						<tspan dx="-78" dy="50">cavaco</tspan>
 						<tspan dx="-183" dy="50">barrosa</tspan> 
@@ -47,7 +47,7 @@
 				</g>
 
 				<g id="namelabel_B" visibility="hidden">
-					<text class="namelabel" fill="white" x="20" y="230">
+					<text class="namelabel" x="20" y="230">
 						<tspan>rui cavaco</tspan>
 						<tspan dx="-263" dy="50">barrosa</tspan>
 					</text>
@@ -113,15 +113,51 @@
 	<div id="rightcol">
 
 		<section id="blogview">
+
 			<header  class="indexhdr">
 				<h1>blog</h1>
 				<div>&nbsp;</div>
 			</header>
 
-			<div id="posts">
+			<div class="posts">
 				<article class="post">
 					<header>
 						<h4>Lançamento do site</h4>
+						<p>2021-10-10</p>
+					</header>
+				</article>
+			</div>
+
+		</section>
+
+		<section id="readingsview">
+
+			<header  class="indexhdr">
+				<h1>ler</h1>
+				<div>&nbsp;</div>
+			</header>
+
+			<div class="posts">
+				<article class="post leitura">
+					<header>
+						<h4>O Plano Marshall e a economia portuguesa dos anos 50</h4>
+						<p>2021-10-10</p>
+					</header>
+				</article>
+			</div>
+
+		</section>
+
+		<section id="fotosview">
+			<header  class="indexhdr">
+				<h1>ver</h1>
+				<div>&nbsp;</div>
+			</header>
+
+			<div class="posts">
+				<article class="post foto">
+					<header>
+						<h4>xxx zzz</h4>
 						<p>2021-10-10</p>
 					</header>
 				</article>
@@ -133,7 +169,7 @@
 
 </main>
 
-<footer role="contentinfo">
+<footer id="indexfooter" role="contentinfo">
 	Sítio mantido / gerado com <a href="https://www.getzola.org">Zola</a>.
 	<span>
 		Data de geração {{ config.extra.last_build_date | date(format="%Y-%m-%d") }}

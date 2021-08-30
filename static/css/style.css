@@ -29,25 +29,35 @@ html.inverted {
 }
 
 body {
-	/*margin: auto;
-	max-width: 57.5em; */
-	padding: 0.8rem;
+	margin: 0;
+	padding: 0;
 	scrollbar-color: #686868 #b1b1b1;	
 }
 
-body > header {
-	height: 40px;
+.namelabel {
+	fill: #3b3b3b;
 }
 
-footer {
+html.inverted .namelabel {
+	fill: white;
+}
+
+#indexheader {
+	height: 3rem;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	border-bottom: 1px dashed #8b8b8b;
+}
+
+#indexfooter {
 	font-size: 0.8em;	
 	border-top: 1px solid #8b8b8b;
 	margin-top: 1rem;
 }
-html.inverted footer {
+html.inverted #indexfooter {
 	border-top: 1px solid #7a7a7a;
 }
-footer span {
+#indexfooter span {
 	float: right;
 }
 
@@ -55,7 +65,8 @@ a {
 	color:rgb(65, 161, 129);
 }
 a:visited {
-	color:rgb(128, 128, 128);
+	/* color:rgb(128, 128, 128); */
+	color:rgb(65, 161, 129);
 }
 header a.acerca {
 	font-family: OpenSans-Regular, Arial, Helvetica, sans-serif;
@@ -73,7 +84,8 @@ html.inverted a {
 	color:rgb(94, 231, 185);
 }
 html.inverted a:visited {
-	color:rgb(173, 173, 173);
+	/* color:rgb(173, 173, 173); */
+	color:rgb(94, 231, 185);
 }
 
 h1 {
@@ -112,17 +124,13 @@ button {
 	margin-left: 10px;
 }
 
-/*
-#banner {
-	float: left;
-} */
-
 .indexhdr {
 	height: 3em;
+
 }
 
 .indexhdr h1 {
-	margin-left: 0.6em;
+	margin-left: 0.8em;
 	margin-bottom: 0; 
 	margin-top: 0;
 	padding-top: 0;
@@ -151,43 +159,41 @@ button {
 	clear: both;
 }
 
-#blogview {
+#rightcol section {
 	float: left;
-	width: 19em;
-	margin-left: 0.6em;
-	height: 300px
 }
 
-#blogview h1 {
+#rightcol h1 {
 	margin-top: 0;
 	padding-bottom: 8px;
 }
 
-#blogview header div {
+#rightcol header div {
 	position: relative;
 	top: -2.4em;
 	margin-left: 6.5em;
 }
 
+#blogview {
+	height: 300px
+}
+
+
+#readingsview {
+	height: 200px
+}
+
+#fotosview {
+	height: 200px
+}
+
 .namelabel {
-	color: white;
 	font-size: 3em;
 	font-family: Jura-SemiBold;	
 }
-/*
-#namelabel {
-	// margin-top: -70px; 
-	position: relative;
-	top: -2.5em;
-	margin-left: 16px;
-	font-size: 3em;
-	font-family: Jura-SemiBold;
-}
-*/
 
-#posts {
+.posts {
 	overflow-y: scroll;
-	height: 280px;
 	margin-left: 1.4em;
 }
 
@@ -198,7 +204,7 @@ button {
 #articles {
 	margin-top: 0.6em;
 	height: 26em;
-	overflow-y: scroll;
+	overflow-y: auto;
 }
 
 #temascontainer::after {
@@ -215,12 +221,10 @@ button {
 .tema {
 	float: left;
 	border: 1px solid #8b8b8b;	
-	padding-left: 1em;
-	padding-right: 0.8em;
-	margin-right: 1em;
-	margin-bottom: 1.4em;
-	width: 15.8em;
-	height: 12em;
+	padding-left: 16px;
+	padding-right: 12px;
+	margin-right: 16px;
+	margin-bottom: 22px;
 }
 
 .post {
@@ -229,8 +233,7 @@ button {
 	padding-right: 0.8em;
 	margin-right: 1em;
 	margin-bottom: 1.4em;
-	width: 14em;
-	height: 4em;
+	height: 6em;
 }
 
 .post header h4 {
@@ -246,9 +249,7 @@ button {
 }
 
 
-/*
-@media (max-width: 850px) {
-	*/
+
 
 
 
