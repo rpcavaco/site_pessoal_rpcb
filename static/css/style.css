@@ -46,7 +46,7 @@ html.inverted .namelabel {
 	height: 3rem;
 	margin-top: 1rem;
 	margin-bottom: 1rem;
-	border-bottom: 1px dashed #8b8b8b;
+	border-bottom: 1px solid #8b8b8b;
 }
 
 #indexfooter {
@@ -137,7 +137,7 @@ button {
 }
 
 .indexhdr div {
-    background-image: url('data:image/svg+xml;charset=utf-8,%3Csvg viewBox=%220 0 6 16%22 xmlns=%22http://www.w3.org/2000/svg%22%3E %3Cpath fill=%22none%22 stroke=%22%238b8b8b%22 stroke-width=%221.4%22 d=%22M1,6L1,16%22 /%3E%3C/svg%3E');	
+    background-image: url('data:image/svg+xml;charset=utf-8,%3Csvg viewBox=%220 0 6 16%22 xmlns=%22http://www.w3.org/2000/svg%22%3E %3Cpath fill=%22none%22 stroke=%22%238b8b8b%22 stroke-width=%221.2%22 d=%22M1,6L1,16%22 /%3E%3C/svg%3E');	
 }
 
 @media (min-width: 660px) {
@@ -220,15 +220,15 @@ button {
 
 .tema {
 	float: left;
-	border: 1px solid #8b8b8b;	
+	border: 2px solid #8b8b8b;	
 	padding-left: 16px;
 	padding-right: 12px;
-	margin-right: 16px;
-	margin-bottom: 22px;
+	margin-right: 14px;
+	margin-bottom: 14px;
 }
 
 .post {
-	border: 1px solid #8b8b8b;	
+	border: 2px solid #8b8b8b;	
 	padding-left: 1em;
 	padding-right: 0.8em;
 	margin-right: 1em;
