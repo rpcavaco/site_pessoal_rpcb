@@ -69,7 +69,6 @@ function calcDims() {
 	}
 
 	console.log("calcMaxwidthSinglecol (alterar @media (max-width: ...) em CSS se necessario):", mwsc);
-	//console.log("leftwid:", leftwid);
 
 	return [leftwid, rightwid, dims];
 	
@@ -84,8 +83,6 @@ function defineWidths() {
 	}
 
 	const dims = calcDims();
-
-	console.log("dims:", dims);
 
 	let vArtworkDimWidth = dims[0];
 
@@ -167,7 +164,6 @@ function defineWidths() {
 	const temas = document.getElementsByClassName("tema");
 	const articles_height = Math.max(TEMAS_MINMAX_HEIGHT[1], dims[2][1] - artheight - 220);
 	const divheight = Math.round(articles_height / TEMAS_HEIGHT);
-	console.log("articles_height:", articles_height);
 	for (let tema, i=0; i<temas.length; i++) {
 		tema = temas[i];
 		tema.style.width = (temawid - 6 - TEMAS_WIDTHS[1] - TEMAS_PADINGS.reduce((a, b) => a + b, 0) ) + 'px';

@@ -20,7 +20,6 @@ function genDrop(p_groupelem, p_mincrd, p_maxcrd, p_minrad, p_maxrad, p_stroke) 
 	an = document.createElementNS("http://www.w3.org/2000/svg", "animate");
 	an.setAttribute("attributeName", "r");
 	values = "0;"+r.toString();
-	console.log("values:", values);
 	an.setAttribute("values", values);
 	an.setAttribute("dur", "3s")
 

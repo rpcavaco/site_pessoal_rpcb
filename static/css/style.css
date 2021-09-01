@@ -61,6 +61,52 @@ html.inverted #indexfooter {
 	float: right;
 }
 
+.footerleft {
+	display: flex;
+	float: left;
+	height: 38px;	
+	width: 200px;
+}
+.footerleft span {
+	align-self: flex-end;
+}
+.footercenter {
+	float: left;
+	margin-left: 12px;
+}
+.social-media-list {
+	list-style: none;
+	padding-left: 20px;
+	margin-top: 6px;
+}
+.svg-icon {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    fill: #828282;
+    padding-right: 5px;
+    vertical-align: text-top;
+}
+.footerright {
+	display: flex;
+	float: right;
+	height: 38px;	
+	width: 170px;	
+}
+.footerright span {
+	align-self: flex-end;
+}
+@media (max-width: 620px) {
+	.footerright {
+		display: none;	
+	}	
+}
+@media (max-width: 400px) {
+	.footerleft {
+		display: none;	
+	}	
+}
+
 a {
 	color:rgb(65, 161, 129);
 }

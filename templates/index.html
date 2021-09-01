@@ -170,10 +170,36 @@
 </main>
 
 <footer id="indexfooter" role="contentinfo">
-	Sítio mantido / gerado com <a href="https://www.getzola.org">Zola</a>.
-	<span>
-		Data de geração {{ config.extra.last_build_date | date(format="%Y-%m-%d") }}
-	</span>
+	<div class="footerleft">
+		<span>
+			Sítio mantido / gerado com <a href="https://www.getzola.org">Zola</a>.
+		</span>
+	</div>
+	<div class="footercenter">
+		<ul class="social-media-list">
+			<li>
+				<a href="https://github.com/rpcavaco">
+					<svg class="svg-icon">
+						<use xlink:href="/assets/minima-social-icons.svg#github"></use>
+					</svg> 
+					<span class="username">rpcavaco</span>
+				</a>			
+			</li>
+			<li>
+				<a href="https://www.twitter.com/rpcavaco">
+					<svg class="svg-icon">
+						<use xlink:href="/assets/minima-social-icons.svg#twitter"></use>
+					</svg> 
+					<span class="username">rpcavaco</span>
+				</a>
+			</li>
+		</ul>	
+	</div>
+	<div class="footerright">
+		<span>
+			Data de geração {{ config.extra.last_build_date | date(format="%Y-%m-%d") }}
+		</span>
+	</div>
 </footer>
 
 <script src="/js/art.js"></script>
