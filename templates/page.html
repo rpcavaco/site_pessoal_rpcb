@@ -1,8 +1,13 @@
-{% extends "root.html" %}
+{% extends "root2.html" %}
 
 {% block content %}
-<header role="heading">
-	page Header. 
+<header class="pageheader" role="heading">
+
+	<a href="/">RPCB</a> 
+	<a>Blog</a> 
+	<a>Temas</a> 
+	<a>Ler</a> 
+	<a>Ver</a> 
 	
 	<div class="right_header_pane">
 
@@ -52,8 +57,8 @@
 	</section>
 </main>
 
-<footer role="contentinfo">
-	<a href="javascript:history.back()">&lt; voltar</a> page footer
+<footer class="pagefooter" role="contentinfo">
+	<a href="javascript:history.back()">&lt; voltar</a>
 	<span>
 		Data de geração {{ config.extra.last_build_date | date(format="%Y-%m-%d") }}
 	</span>

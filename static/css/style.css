@@ -16,22 +16,29 @@
 
 html {
 	background-color: #fff0ef;
-	background: linear-gradient(#fffcfb, #d1c4c2);
-	color: #3b3b3b;
+	background: linear-gradient(to bottom, #fffcfb, #d1c4c2);
+	background-size: 100%;
+	background-repeat: no-repeat;
 	font-family: OpenSans-Regular, Arial, Helvetica, sans-serif;
 	font-size: 16px;
 	height: 100%;
+	background-attachment: fixed;
 }
-
 html.inverted {
 	color: #ffffff;
-	background: linear-gradient(#305f5f, #101010);	
+	background: linear-gradient(to bottom, #305f5f, #101010);	
+	background-attachment: fixed;	
 }
 
 body {
 	margin: 0;
 	padding: 0;
 	scrollbar-color: #686868 #b1b1b1;	
+}
+body.page {
+	margin: auto;
+	max-width: 90%;
+	padding: 2%;
 }
 
 .namelabel {
@@ -42,23 +49,33 @@ html.inverted .namelabel {
 	fill: white;
 }
 
-#indexheader {
+.pageheader {
 	height: 3rem;
 	margin-top: 1rem;
 	margin-bottom: 1rem;
 	border-bottom: 1px solid #8b8b8b;
 }
+.pageheader a {
+	font-family: Jura-SemiBold;
+	font-size: 1.2em;
+	margin-right: 12px;	
+	text-decoration: none;
+}
 
-#indexfooter {
+
+footer {
 	font-size: 0.8em;	
 	border-top: 1px solid #8b8b8b;
 	margin-top: 1rem;
 }
-html.inverted #indexfooter {
+html.inverted footer {
 	border-top: 1px solid #7a7a7a;
 }
-#indexfooter span {
+footer span {
 	float: right;
+}
+.pagefooter {
+	padding-top: 1rem;
 }
 
 .footerleft {
