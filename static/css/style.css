@@ -113,7 +113,7 @@ footer span {
 .footerright span {
 	align-self: flex-end;
 }
-@media (max-width: 620px) {
+@media (max-width: 750px) {
 	.footerright {
 		display: none;	
 	}	
@@ -137,7 +137,7 @@ header a.acerca {
 	margin-left: 10px;
 	float: right;
 }
-@media (max-width: 660px) {
+@media (max-width: 750px) {
 	header a.acerca {
 		font-size: 1rem;	
 	}	
@@ -203,14 +203,14 @@ button {
     background-image: url('data:image/svg+xml;charset=utf-8,%3Csvg viewBox=%220 0 6 16%22 xmlns=%22http://www.w3.org/2000/svg%22%3E %3Cpath fill=%22none%22 stroke=%22%238b8b8b%22 stroke-width=%221.2%22 d=%22M1,6L1,16%22 /%3E%3C/svg%3E');	
 }
 
-@media (min-width: 660px) {
+@media (min-width: 750px) {
 	#leftcol {
 		float: left;
 	}
 }
 
 /* Esconder coluna da direita com largura total abaixo de ... */
-@media (max-width: 660px) {
+@media (max-width: 750px) {
 	#rightcol {
 		display: none;
 	}

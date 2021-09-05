@@ -1,8 +1,7 @@
 
 
-PROPORCES_LARGURA = [ 60, 24 ]; // Para exibição de em duas colunas, proporções das larguras destas
-ART_MIN = 400; // calcMaxwidthSinglecol() = 660
-ART_PADDING_FULLWIDTH = 24;
+PROPORCES_LARGURA = [ 60, 28 ]; // Para exibição de em duas colunas, proporções das larguras destas
+HIDDENLEFTCOL_WIDTHLIMIT = 750; // ATENÇÃO - Ao alterar, alterar também em media queries com o mesmo valor em style.css
 ART_HEIGHT = 300;
 TEMAS_WIDTHS = [250, 16]; // Largura + right margin
 TEMAS_HEIGHT = 200;
@@ -10,13 +9,6 @@ TEMAS_MINMAX_HEIGHT = [140, 300];
 TEMAS_BOTTOMMARG = 22;
 TEMAS_PADINGS = [16, 12]; // padding esquerdo e direito
 
-/*
- Ao alterar estes valores acima, usar calcMaxwidthSinglecol() para calcular valor limite para as queries CSS media envolvendo largura, exemplo:
-
- 	@media (max-width: 850px) {
-
-Ver indicação 'calcMaxwidthSinglecol' na consola.		
-*/
 
 function setCookie(name,value,days) {
     var expires = "";
@@ -39,11 +31,6 @@ function getCookie(name) {
     return null;
 }
 
-// Largura máxima display uma só coluna, a partir da qual é exibida a segunda col 
-function calcMaxwidthSinglecol() {
-	return 10 * parseInt((ART_MIN / (PROPORCES_LARGURA[0] / 100.0)) / 10);
-}
-
 function bodyCanvasDims() {
 	let w = window,
     d = document,
@@ -57,20 +44,25 @@ function bodyCanvasDims() {
 
 function calcDims() {
 
-	let leftwid, rightwid, dims = bodyCanvasDims();
-	const mwsc = calcMaxwidthSinglecol();
+	let leftwid, rightwid, mobile_portrait = false, dims = bodyCanvasDims();
+	const mwsc = HIDDENLEFTCOL_WIDTHLIMIT;
 
 	if (dims[0] > mwsc) {
 		leftwid = parseInt(dims[0] * PROPORCES_LARGURA[0] / 100.0);
 		rightwid = parseInt(dims[0] * PROPORCES_LARGURA[1] / 100.0);
 	} else {
-		leftwid = Math.min(parseInt(dims[0] - ART_PADDING_FULLWIDTH));
+		leftwid = parseInt(dims[0] * (PROPORCES_LARGURA[0] + PROPORCES_LARGURA[1]) / 100.0);
 		rightwid = null;
+	} 
+
+	if (/Mobi|Android/i.test(navigator.userAgent)) {
+		if (dims[1] > dims[0]) {
+			mobile_portrait = true;
+		}
 	}
 
-	console.log("calcMaxwidthSinglecol (alterar @media (max-width: ...) em CSS se necessario):", mwsc);
 
-	return [leftwid, rightwid, dims];
+	return [leftwid, rightwid, dims, mobile_portrait];
 	
 }
 
@@ -159,14 +151,20 @@ function defineWidths() {
 	}
 
 	// Redimensionar 'temas'
-	const divwid = Math.round(dims[0] / TEMAS_WIDTHS.reduce((a, b) => a + b, 0));
-	const temawid = parseInt(dims[0] / divwid);
+	const usable_width_for_temas = vArtworkDimWidth - 18;
+	let divwid = Math.round(usable_width_for_temas / TEMAS_WIDTHS.reduce((a, b) => a + b, 0));
+	let temawid = parseInt(usable_width_for_temas / divwid) - TEMAS_PADINGS.reduce((a, b) => a + b, 0);
+	while (temawid < TEMAS_WIDTHS[0] && divwid > 1) {
+		divwid--;
+		temawid = parseInt(usable_width_for_temas / divwid) - TEMAS_PADINGS.reduce((a, b) => a + b, 0);
+	}
+
 	const temas = document.getElementsByClassName("tema");
 	const articles_height = Math.max(TEMAS_MINMAX_HEIGHT[1], dims[2][1] - artheight - 220);
 	const divheight = Math.round(articles_height / TEMAS_HEIGHT);
 	for (let tema, i=0; i<temas.length; i++) {
 		tema = temas[i];
-		tema.style.width = (temawid - 6 - TEMAS_WIDTHS[1] - TEMAS_PADINGS.reduce((a, b) => a + b, 0) ) + 'px';
+		tema.style.width = (temawid - 12) + 'px';
 		tema.style.height = Math.max(TEMAS_MINMAX_HEIGHT[0], parseInt(Math.round(articles_height / divheight) - TEMAS_BOTTOMMARG - 4)) + 'px';
 	}
 
