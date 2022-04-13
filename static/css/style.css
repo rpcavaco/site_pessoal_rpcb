@@ -15,19 +15,33 @@
 
 
 html {
-	background-color: #fff0ef;
+	background-color: #1b1b1b;
 	background: linear-gradient(to bottom, #fffcfb, #d1c4c2);
 	background-size: 100%;
 	background-repeat: no-repeat;
 	font-family: OpenSans-Regular, Arial, Helvetica, sans-serif;
 	font-size: 16px;
-	height: 100%;
-	background-attachment: fixed;
+	/* height: 100%;
+	background-attachment: fixed; */
 }
 html.inverted {
 	color: #ffffff;
 	background: linear-gradient(to bottom, #305f5f, #101010);	
 	background-attachment: fixed;	
+}
+
+.bckgrdelem {
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(to bottom, #fffcfb, #d1c4c2);
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+html.inverted .bckgrdelem {
+	background: linear-gradient(to bottom, #305f5f, #101010);	
+	background-attachment: fixed;
+
 }
 
 body {
@@ -48,12 +62,15 @@ body.page {
 html.inverted .namelabel {
 	fill: white;
 }
+html.inverted .namelabel_huge {
+	fill: white;
+}
 
 .pageheader {
 	height: 3rem;
 	margin-top: 1rem;
 	margin-bottom: 1rem;
-	border-bottom: 1px solid #8b8b8b;
+	border-bottom: 0.12rem solid #8b8b8b;
 }
 .pageheader a {
 	font-family: Jura-SemiBold;
@@ -69,7 +86,7 @@ footer {
 	margin-top: 1rem;
 }
 html.inverted footer {
-	border-top: 1px solid #7a7a7a;
+	border-top: 0.12rem solid #7a7a7a;
 }
 footer span {
 	float: right;
@@ -82,7 +99,7 @@ footer span {
 	display: flex;
 	float: left;
 	height: 38px;	
-	width: 200px;
+	width: 12.5rem;
 }
 .footerleft span {
 	align-self: flex-end;
@@ -108,7 +125,7 @@ footer span {
 	display: flex;
 	float: right;
 	height: 38px;	
-	width: 170px;	
+	width: 10.625rem;
 }
 .footerright span {
 	align-self: flex-end;
@@ -252,6 +269,11 @@ button {
 
 .namelabel {
 	font-size: 3em;
+	font-family: Jura-SemiBold;	
+}
+
+.namelabel_huge {
+	font-size: 6em;
 	font-family: Jura-SemiBold;	
 }
 

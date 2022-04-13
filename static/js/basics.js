@@ -44,16 +44,8 @@ function bodyCanvasDims() {
 
 function calcDims() {
 
-	let leftwid, rightwid, mobile_portrait = false, dims = bodyCanvasDims();
+	let artheight, leftwid, rightwid, mobile_portrait = false, dims = bodyCanvasDims();
 	const mwsc = HIDDENLEFTCOL_WIDTHLIMIT;
-
-	if (dims[0] > mwsc) {
-		leftwid = parseInt(dims[0] * PROPORCES_LARGURA[0] / 100.0);
-		rightwid = parseInt(dims[0] * PROPORCES_LARGURA[1] / 100.0);
-	} else {
-		leftwid = parseInt(dims[0] * (PROPORCES_LARGURA[0] + PROPORCES_LARGURA[1]) / 100.0);
-		rightwid = null;
-	} 
 
 	if (/Mobi|Android/i.test(navigator.userAgent)) {
 		if (dims[1] > dims[0]) {
@@ -61,8 +53,21 @@ function calcDims() {
 		}
 	}
 
+	if (dims[0] > mwsc && !mobile_portrait) {
+		leftwid = parseInt(dims[0] * PROPORCES_LARGURA[0] / 100.0);
+		rightwid = parseInt(dims[0] * PROPORCES_LARGURA[1] / 100.0);
+	} else {
+		leftwid = parseInt(dims[0] * (PROPORCES_LARGURA[0] + PROPORCES_LARGURA[1]) / 100.0);
+		rightwid = null;
+	} 
 
-	return [leftwid, rightwid, dims, mobile_portrait];
+	if (mobile_portrait) {
+		artheight = 0.85 * dims[1];
+	} else {
+		artheight = ART_HEIGHT;
+	}
+
+	return [leftwid, rightwid, dims, mobile_portrait, artheight];
 	
 }
 
@@ -75,63 +80,96 @@ function defineWidths() {
 	}
 
 	const dims = calcDims();
-
+	let artheight = dims[4];
 	let vArtworkDimWidth = dims[0];
 
-	//const artheight = (dims[2][1] < 750 ?  Math.round(dims[2][1] * 0.4) : ART_HEIGHT);
-	const artheight = ART_HEIGHT;
+	console.log("mobile_portrait:", dims[3]);
 
-	artwobj.setAttribute("width", vArtworkDimWidth); 
-	artwobj.setAttribute("height", artheight); 
-	artwobj.setAttribute("viewBox", "0 0 "+vArtworkDimWidth+" "+artheight); 
+	// Se estiver em mobile_portrait
+	if (dims[3]) {
 
-	// Alterar largura das colunas
-	const widthctrl_wdgs = ["temascontainer", "blogview", "readingsview", "fotosview"];
-	const leftwid_wdgs = ["temascontainer"];
-	let wdg;
-	for (let wididx, i=0; i<widthctrl_wdgs.length; i++) {
-		wdg = document.getElementById(widthctrl_wdgs[i]);
-		if (wdg) {
-			wididx = (leftwid_wdgs.indexOf(widthctrl_wdgs[i]) >= 0 ? 0 : 1)
-			wdg.style.width = dims[wididx] + 'px';
-		}
-	}
-
-	// Alterar disposição de altura de 'namelabel' de acordo com a largura disponível
-	const nlbl_variants = ["A", "B", "C"];
-	for (let grpid, nlv, i=0; i<nlbl_variants.length; i++) {
-		nlv = nlbl_variants[i];
-		grpid = "namelabel_" + nlv;
-		wdg = document.getElementById(grpid);
-		if (wdg) {
-			switch (nlv) {
-
-				case "C":
-					if (vArtworkDimWidth <= 350) {
-						wdg.setAttribute("visibility", "visible");
-					} else {
-						wdg.setAttribute("visibility", "hidden");
-					}
-					break;
-				
-				case "B":
-					if (vArtworkDimWidth > 350 && vArtworkDimWidth <= 480) {
-						wdg.setAttribute("visibility", "visible");
-					} else {
-						wdg.setAttribute("visibility", "hidden");
-					}
-					break;
-				
-				case "A":
-					if (vArtworkDimWidth > 480) {
-						wdg.setAttribute("visibility", "visible");
-					} else {
-						wdg.setAttribute("visibility", "hidden");
-					}
-					break;	
-
+		const mobile_port_tohide = ["temascontainer", "rightcol"];
+		let wdg;
+		for (let i=0; i<mobile_port_tohide.length; i++) {
+			wdg = document.getElementById(mobile_port_tohide[i]);
+			if (wdg) {
+				wdg.style.display = "none";
 			}
 		}
+
+		artwobj.setAttribute("width", vArtworkDimWidth); 
+		artwobj.setAttribute("height", artheight + 'px'); 
+		artwobj.setAttribute("viewBox", "0 0 "+vArtworkDimWidth+" "+artheight); 
+
+		const wdgs = document.getElementsByTagName("html");
+		if (wdgs.length > 0) {
+			wdgs[0].style.fontSize = '24px';
+		}
+
+		wdg = document.getElementById("namelabel_A");
+		if (wdg) {
+			wdg.setAttribute("visibility", "hidden");
+		}
+		wdg = document.getElementById("namelabel_D");
+		if (wdg) {
+			wdg.setAttribute("visibility", "visible");
+		}
+
+	} else {
+
+		artwobj.setAttribute("width", vArtworkDimWidth); 
+		artwobj.setAttribute("height", artheight); 
+		artwobj.setAttribute("viewBox", "0 0 "+vArtworkDimWidth+" "+artheight); 
+
+		// Alterar largura das colunas
+		const widthctrl_wdgs = ["temascontainer", "blogview", "readingsview", "fotosview"];
+		const leftwid_wdgs = ["temascontainer"];
+
+		for (let wididx, i=0; i<widthctrl_wdgs.length; i++) {
+			wdg = document.getElementById(widthctrl_wdgs[i]);
+			if (wdg) {
+				wididx = (leftwid_wdgs.indexOf(widthctrl_wdgs[i]) >= 0 ? 0 : 1)
+				wdg.style.width = dims[wididx] + 'px';
+			}
+		}
+
+		// Alterar disposição de altura de 'namelabel' de acordo com a largura disponível
+		const nlbl_variants = ["A", "B", "C", "D"];
+		for (let grpid, nlv, i=0; i<nlbl_variants.length; i++) {
+			nlv = nlbl_variants[i];
+			grpid = "namelabel_" + nlv;
+			wdg = document.getElementById(grpid);
+			if (wdg) {
+				switch (nlv) {
+
+					case "C":
+						if (vArtworkDimWidth <= 350) {
+							wdg.setAttribute("visibility", "visible");
+						} else {
+							wdg.setAttribute("visibility", "hidden");
+						}
+						break;
+					
+					case "B":
+						if (vArtworkDimWidth > 350 && vArtworkDimWidth <= 480) {
+							wdg.setAttribute("visibility", "visible");
+						} else {
+							wdg.setAttribute("visibility", "hidden");
+						}
+						break;
+					
+					case "A":
+						if (vArtworkDimWidth > 480) {
+							wdg.setAttribute("visibility", "visible");
+						} else {
+							wdg.setAttribute("visibility", "hidden");
+						}
+						break;	
+
+				}
+			}
+		}
+
 	}
 
 	// Alterar margens horizontais

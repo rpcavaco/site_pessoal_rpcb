@@ -159,9 +159,9 @@ var DropAnimator = null;
 	const radius_step = 0.3;
 	const nextdropstep_millis = 400;
 	const stroke_opac_step = 0.002;
-	const widths = calcDims();
-	const width = widths[0];
-	const height = 300;
+	const dims = calcDims();
+	const width = dims[0];
+	const height = dims[4];
 	const maxradius = 180;
 
 	DropAnimator = new DropAnimatorClass("gen", width, height, maxradius, radius_step, nextdropstep_millis, stroke_opac_step);
